@@ -1,10 +1,15 @@
 AOS.init();
 
 function toggleDarkMode() {
-  document.body.classList.toggle('dark');
+  document.body.classList.toggle("dark-mode");
+  let darkMode = document.body.classList.contains("dark-mode");
+  document.querySelector(".theme-toggle").textContent = darkMode ? "🌞" : "🌙";
 }
 
-function submitForm(event) {
-  event.preventDefault();
-  alert("Thanks for your message! I'll get back to you soon.");
-}
+// Smooth scroll to section
+document.querySelectorAll('.btn-primary').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector(e.target.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+  });
+});
